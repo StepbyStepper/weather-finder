@@ -9,7 +9,8 @@ class App extends React.Component {
 
   gettingWeather = async (e) => {
     e.preventDefault();
-    const api_url = await fetch(`https://samples.openweathermap.org/data/2.5/weather?q=London&appid=${API_KEY}&units=metric`);
+    const city = e.target.elements.city.value;
+    const api_url = await fetch(`https://samples.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`);
     const data = await api_url.json();
     console.log(data);
   }
